@@ -7,7 +7,6 @@ import os
 import pandas as pd
 from streamlit_ketcher import st_ketcher
 from rdkit.Chem import Draw
-import shap
 from rdkit.Chem.Draw import SimilarityMaps
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
