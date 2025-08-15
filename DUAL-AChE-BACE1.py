@@ -233,27 +233,7 @@ def GenerateCHEMspace(datapath, fingerprint):
     }
     colors = [color_map.get(label, 'gray') for label in y]
 
-    # ----------- PCA Plot to BytesIO -------------
-    pca = PCA(n_components=2)
-    X_pca = pca.fit_transform(X)
-
-    fig_pca, ax1 = plt.subplots(figsize=(8, 6))
-    for i, class_name in enumerate(class_names):
-        idx = y_encoded == i
-        ax1.scatter(X_pca[idx, 0], X_pca[idx, 1],
-                    label=class_name, alpha=0.7, edgecolor='k',
-                    color=color_map[class_name])
-    ax1.scatter(X_pca[-1, 0], X_pca[-1, 1], color='black', edgecolor='yellow', s=120, marker='*', label='Input Compound')
-    ax1.set_title("PCA Plot")
-    ax1.set_xlabel("PCA-1")
-    ax1.set_ylabel("PCA-2")
-    ax1.legend()
-    ax1.grid(True)
-
-    pca_buffer = BytesIO()
-    fig_pca.savefig(pca_buffer, format='png', bbox_inches='tight')
-    pca_buffer.seek(0)
-    plt.close(fig_pca)
+    
 
     # ----------- t-SNE Plot to BytesIO -------------
     tsne = TSNE(n_components=2, random_state=42, perplexity=30, n_iter=1000)
