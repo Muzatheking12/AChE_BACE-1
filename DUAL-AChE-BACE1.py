@@ -9,7 +9,6 @@ from streamlit_ketcher import st_ketcher
 from rdkit.Chem import Draw
 from rdkit.Chem.Draw import SimilarityMaps
 import matplotlib.pyplot as plt
-from sklearn.decomposition import PCA
 from sklearn.preprocessing import LabelEncoder
 from sklearn.manifold import TSNE
 from io import BytesIO
@@ -379,8 +378,6 @@ with tab2:
     st.image(tanACHE)
     st.write("### t-SNE Visualization")
     st.image(tsneACHE)
-    st.write("### PCA Visualization")
-    st.image(pcaAcHE)
     st.write("### Scatter Plot of Predicted vs Actual")
     st.write("**Model: Random Forest Regressor**")
     st.write("**FP: Morgan**")
@@ -395,8 +392,6 @@ with tab3:
        st.image(tanBACE1)
        st.write("### t-SNE Visualization")
        st.image(tsneBACE1)
-       st.write("### PCA Visualization")
-       st.image(pcaBACE1)
        st.write("### Scatter Plot of Predicted vs Actual")
        st.write("**Model: NuSVR**")
        st.write("**FP: Morgan**")
